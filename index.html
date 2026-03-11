@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Home - Trip Milan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <h1 id="greeting">Bon dia!! ☀️</h1>
+    
+    <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 30px;">
+        <div id="mini-map" style="width: 120px; height: 120px; border-radius: 20px; overflow: hidden; background: rgba(0,0,0,0.2);"></div>
+        <div>
+            <p id="current-date" style="font-size: 33px; font-weight: 600;">-- Abril</p>
+            <p style="font-size: 20px;">📍 Milà</p>
+            <p id="temp" style="font-size: 20px;">-- C°</p>
+            <p style="font-size: 14px;">🏨 Hotel Perico Palotes</p>
+        </div>
+    </div>
+
+    <div class="ticket-container">
+        <div class="ticket">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="text-align:left;"><h2>VLC</h2><p>València</p></div>
+                <div style="text-align:center;">✈️<br><small>2 hores</small></div>
+                <div style="text-align:right;"><h2>MXP</h2><p>Milà</p></div>
+            </div>
+            <hr style="margin: 20px 0; opacity: 0.2;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <p>Arrive: 7:50</p><p>Dist: 1034km</p>
+                <p>Boarding: <span class="countdown" data-time="05:50">--</span></p>
+                <p>Date: 2026/04/10</p>
+            </div>
+            <div style="text-align:center; margin-top:15px;">● <span style="opacity:0.3">○</span></div>
+        </div>
+        <div class="ticket">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="text-align:left;"><h2>MXP</h2><p>Milà</p></div>
+                <div style="text-align:center;">✈️<br><small>2 hores</small></div>
+                <div style="text-align:right;"><h2>VLC</h2><p>València</p></div>
+            </div>
+            <hr style="margin: 20px 0; opacity: 0.2;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <p>Arrive: 18:55</p><p>Dist: 1034km</p>
+                <p>Boarding: <span class="countdown" data-time="16:55">--</span></p>
+                <p>Date: 2026/04/13</p>
+            </div>
+            <div style="text-align:center; margin-top:15px;"><span style="opacity:0.3">○</span> ●</div>
+        </div>
+    </div>
+
+    <img src="MAPA de puntos.svg" style="position: absolute; bottom: 80px; left: 0; width: 100%; opacity: 0.15; pointer-events: none;">
+
+    <nav class="nav-container">
+        <div class="menu-pill">
+            <a href="itinerari.html">ITINERARI</a>
+            <a href="mapa.html">MAPA</a>
+            <a href="info.html">INFO+</a>
+        </div>
+    </nav>
+    <script src="app.js"></script>
+</body>
+</html>
