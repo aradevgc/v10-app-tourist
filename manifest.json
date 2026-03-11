@@ -1,0 +1,15 @@
+{
+  "name": "Milan Trip PWA",
+  "short_name": "MilanTrip",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#F44C4C",
+  "theme_color": "#F44C4C",
+  "icons": [
+    {
+      "src": "casa.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
