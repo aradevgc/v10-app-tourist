@@ -82,7 +82,7 @@ h1 {
     scroll-snap-type: x mandatory;
     gap: 15px;
     padding: 10px 0;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     scrollbar-width: none;
 }
 
