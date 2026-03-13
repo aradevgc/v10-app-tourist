@@ -99,14 +99,17 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 .ticket-container::-webkit-scrollbar { display: none; }
 
 .ticket {
-    min-width: 100%;
-    scroll-snap-align: start;
-    background: var(--glass);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-radius: 25px;
-    padding: 25px;
-    border: 1px solid var(--glass-border);
+   min-width: 100%;
+scroll-snap-align: start;
+/* Elimina o comenta las siguientes líneas: */
+background: transparent; /* Cambia var(--glass) por transparent */
+backdrop-filter: none; /* Cambia blur(15px) por none */
+-webkit-backdrop-filter: none; /* Cambia blur(15px) por none */
+border: none; /* Cambia 1px solid... por none */
+
+/* Mantén estas para que el texto no se pegue a los bordes */
+border-radius: 25px;
+padding: 25px;
 }
 
 /* Acordión Itinerari */

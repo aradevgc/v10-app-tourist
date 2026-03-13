@@ -61,14 +61,27 @@ c.innerText = `${h}h ${m}m`;
 }
 
 function initLiveLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(pos => {
-            const mapDiv = document.getElementById('mini-map');
-            if (mapDiv) {
-                mapDiv.innerHTML = `<iframe width="100%" height="100%" frameborder="0" src="https://www.openstreetmap.org/export/embed.html?bbox=${pos.coords.longitude-0.005},${pos.coords.latitude-0.005},${pos.coords.longitude+0.005},${pos.coords.latitude+0.005}&layer=mapnik"></iframe>`;
-            }
-        });
-    }
+// 1. Inicializamos el mapa en el div 'mini-map'
+const map = L.map('mini-map', {
+zoomControl: false,
+attributionControl: false
+}).setView([45.4642, 9.1900], 13); // Vista inicial (por si el GPS falla)
+
+// 2. Cargamos las imágenes del mapa (tiles)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+// 3. Pedimos la ubicación actual
+map.locate({setView: true, maxZoom: 16});
+
+// 4. Si nos dan permiso, ponemos el marcador
+map.on('locationfound', (e) => {
+L.marker(e.latlng).addTo(map);
+});
+
+// 5. Si hay error (deniegan permiso), avisamos
+map.on('locationerror', (e) => {
+console.log("Acceso a ubicación denegado.");
+});
 }
 
 // Transitland Search
