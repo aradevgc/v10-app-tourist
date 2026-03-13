@@ -35,17 +35,26 @@ async function fetchWeather() {
 
 function initCountdowns() {
     const update = () => {
-        document.querySelectorAll('.countdown').forEach(c => {
-            const [th, tm] = c.dataset.time.split(':');
-            const now = new Date();
-            const target = new Date();
-            target.setHours(th, tm, 0);
-            let diff = target - now;
-            if (diff < 0) { c.innerText = "0h 0m"; return; }
-            const h = Math.floor(diff / 3600000);
-            const m = Math.floor((diff % 3600000) / 60000);
-            c.innerText = `${h}h ${m}m`;
-        });
+document.querySelectorAll('.countdown').forEach(c => {
+const [th, tm] = c.dataset.time.split(':');
+const now = new Date();
+const target = new Date();
+
+target.setHours(th, tm, 0, 0);
+
+// Si la hora ya pasó hoy, ponemos el target para mañana
+if (target < now) {
+target.setDate(target.getDate() + 1);
+}
+
+const diff = target - now;
+
+const h = Math.floor(diff / (1000 * 60 * 60));
+const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+c.innerText = `${h}h ${m}m`;
+});
+
     };
     update();
     setInterval(update, 60000);

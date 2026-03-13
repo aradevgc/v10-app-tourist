@@ -62,13 +62,23 @@ h1 {
 
 .home-circle {
     width: 48px;
-    height: 48px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+height: 48px;
+/* Copiamos el estilo de cristal */
+background: var(--glass);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border: 1px solid var(--glass-border);
+
+/* Mantenemos que sea un círculo */
+border-radius: 50%;
+
+/* Centrado de la casita/imagen */
+display: flex;
+align-items: center;
+justify-content: center;
+
+/* Sombra opcional (puedes dejar la que tenías o quitarla) */
+box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .home-circle img {
