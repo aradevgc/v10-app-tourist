@@ -137,3 +137,33 @@ summary {
     opacity: 0.9;
     line-height: 1.5;
 }
+
+/* --- ESTILOS PARA EL MINI MAPA --- */
+
+#mini-map {
+    width: 190px;           /* Ajustado al diseño de tu index.html */
+    height: 175px;          /* Ajustado al diseño de tu index.html */
+    border-radius: 20px;    /* Redondeado suave como tus tickets */
+    border: 1px solid var(--glass-border); /* Usa tu variable de borde cristal */
+    background: var(--glass);              /* Fondo traslúcido mientras carga */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    z-index: 1;             /* Para que no lo tape el SVG de fondo */
+    overflow: hidden;       /* Obliga al mapa a respetar las esquinas redondeadas */
+}
+
+/* Filtro para Modo Oscuro: Invierte los colores de las imágenes del mapa */
+/* Esto hará que el mapa de OpenStreetMap combine con tu fondo degradado */
+.leaflet-tile-container {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+/* Ocultar elementos innecesarios de la interfaz de Leaflet */
+.leaflet-control-zoom, 
+.leaflet-control-attribution {
+    display: none !important;
+}
+
+/* Asegurar que el marcador se vea bien sobre el mapa invertido */
+.leaflet-marker-icon {
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+}
