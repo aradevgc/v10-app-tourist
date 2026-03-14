@@ -35,30 +35,40 @@ async function fetchWeather() {
 
 function initCountdowns() {
     const update = () => {
-document.querySelectorAll('.countdown').forEach(c => {
-const [th, tm] = c.dataset.time.split(':');
-const now = new Date();
-const target = new Date();
+        document.querySelectorAll('.countdown').forEach(c => {
+            const now = new Date();
+            // Definimos la fecha exacta del vuelo: 10 de abril de 2026 a las 16:55
+            // Nota: En JS los meses empiezan en 0 (Enero es 0, Abril es 3)
+            const target = new Date(2026, 3, 10, 16, 55, 0);
 
-target.setHours(th, tm, 0, 0);
+            const diff = target - now;
 
-// Si la hora ya pasó hoy, ponemos el target para mañana
-if (target < now) {
-target.setDate(target.getDate() + 1);
-}
+            if (diff <= 0) {
+                c.innerText = "0h 0m 0s";
+                return;
+            }
 
-const diff = target - now;
+            // Calculamos días, horas, minutos y segundos
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-const h = Math.floor(diff / (1000 * 60 * 60));
-const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
-c.innerText = `${h}h ${m}m`;
-});
-
+            // Si faltan muchos días, podemos mostrar: 26d 14h 22m
+            // Si falta poco, solo horas: 14h 22m 05s
+            if (d > 0) {
+                c.innerText = `${d}d ${h}h ${m}m`;
+            } else {
+                c.innerText = `${h}h ${m}m ${s}s`;
+            }
+        });
     };
+
     update();
-    setInterval(update, 60000);
+    // Cambia el intervalo a 1000 (1 segundo) para que se vean los segundos correr
+    setInterval(update, 1000); 
 }
+
 
 function initLiveLocation() {
 // 1. Inicializamos el mapa en el div 'mini-map'
