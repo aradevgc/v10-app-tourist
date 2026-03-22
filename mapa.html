@@ -13,12 +13,33 @@
     </div>
 
     <h2>Transport</h2>
-    <div style="display: flex; gap: 10px; margin: 15px 0;">
-        <button onclick="searchTransport(1)" style="padding:10px; border-radius:15px; border:none; background:white;">Metro</button>
-        <button onclick="searchTransport(3)" style="padding:10px; border-radius:15px; border:none; background:white;">Bus</button>
-        <button onclick="searchTransport(0)" style="padding:10px; border-radius:15px; border:none; background:white;">Tram</button>
-    </div>
-    <div id="transit-results" class="ticket" style="min-height: 100px;">Selecciona un tipus de transport.</div>
+<div>
+    <a href="#" onclick="abrirApp()">Abrir app transporte
+        <button style="background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 12px 25px;
+    display: flex;
+    gap: 20px;">
+    <img src="assets/airplane.svg" alt="">
+    </button>
+    </a>
+
+<script>
+function abrirApp() {
+    // Intentar abrir la app
+    window.location = "atm://";
+
+    // Si no funciona, redirige a la tienda
+    setTimeout(function() {
+        window.location = "https://apps.apple.com/it/app/atm-milano-official-app/id415839518";
+    }, 2000);
+}
+</script>
+    
+</div>
 
     <nav class="nav-container">
         <div class="menu-pill"><a href="itinerari.html">ITINERARI</a><a href="info.html">INFO+</a></div>
