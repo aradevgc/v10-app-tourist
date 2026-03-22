@@ -7,9 +7,9 @@
   "theme_color": "#F44C4C",
   "icons": [
     {
-      "src": "assets/casa.svg",
+      "src": "assets/MILANO.png",
       "sizes": "512x512",
-      "type": "image/svg+xml"
+      "type": "image/png"
     }
   ]
 }

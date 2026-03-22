@@ -39,7 +39,17 @@ function initCountdowns() {
             const now = new Date();
             // Definimos la fecha exacta del vuelo: 10 de abril de 2026 a las 16:55
             // Nota: En JS los meses empiezan en 0 (Enero es 0, Abril es 3)
-            const target = new Date(2026, 3, 10, 16, 55, 0);
+            const time = c.getAttribute("data-time").split(":");
+            const hours = parseInt(time[0]);
+            const minutes = parseInt(time[1]);
+
+            // Detectamos si es el primer o segundo ticket
+            const isSecond = c.closest(".ticket").querySelector('[data-time="16:55"]') === c;
+
+            // Día 10 para ida, día 13 para vuelta
+            const day = isSecond ? 13 : 10;
+
+            const target = new Date(2026, 3, day, hours, minutes, 0);;
 
             const diff = target - now;
 
