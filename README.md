@@ -4,13 +4,13 @@
 > Aqui tienes una nota especial
 
 > [!IMPORTANT]
-> HOLAAAA
+> Aqui tienes una nota importante 
 
 > [!TIP]
-> ADEUUUUU
+> Aqui tienes un tip
 
 > [!WARNING]
-> WOWW
+> Cuidado, aqui tienen una advertencia 
 
 > [!CAUTION]
-> alAaaaaa
+> Noooo, aqui tienes mucho peligro
